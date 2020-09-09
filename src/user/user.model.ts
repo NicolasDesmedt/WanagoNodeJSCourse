@@ -7,12 +7,31 @@ const addressSchema = new mongoose.Schema({
   country: String,
 });
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  address: addressSchema,
-  twoFactorAuthenticationCode: String,
+const userSchema = new mongoose.Schema(
+  {
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: {
+      type: String,
+      get: (): undefined => undefined,
+    },
+    address: addressSchema,
+    twoFactorAuthenticationCode: String,
+    creditCardNumber: {
+      type: String,
+      get: (creditCardNumber: string) => {
+        return `****-****-****-${creditCardNumber.substr(creditCardNumber.length - 4)}`;
+      },
+    },
+  },
+  {
+    toJSON: { getters: true },
+  }
+);
+
+userSchema.virtual('fullName').get(function () {
+  return `${this.firstName} ${this.lastName}`;
 });
 
 const userModel = mongoose.model<User & mongoose.Document>('User', userSchema);

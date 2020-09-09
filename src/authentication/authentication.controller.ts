@@ -104,6 +104,7 @@ class AuthenticationController implements Controller {
   //   const user = await this.user.findOne({ email: logInData.email });
   //   if (user) {
   //     const isPasswordMatching = await bcrypt.compare(logInData.password, user.password);
+  //     // const isPasswordMatching = await bcrypt.compare(logInData.password, user.get('password', null, { getters: false }))
   //     if (isPasswordMatching) {
   //       user.password = undefined;
   //       user.twoFactorAuthenticationCode = undefined;
