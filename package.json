@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node ./src/server.ts",
     "dev": "nodemon",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",

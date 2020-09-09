@@ -1,16 +1,12 @@
 language: node_js
 node_js:
-  - lts/*
+- lts/*
 script:
-  - 'npm run test'
-# - 'npm run lint'
-
-# blocklist
-branches:
-  except:
-    - legacy
-
-# safelist
+- npm run test
+deploy:
+  provider: heroku
+  api_key:
+    secure: WOEVoAxGEqVZEdnhBYW6RtPOfdEl13bc1axSKZyEq3yznqS2sQUqtC35s9R3BltQTLQN99xzItaRlFnIZ/6OYcSKZMSHRZZNReFwTKLEQCATE3NTpTQoPmb/H+CVYl9I1kvBO4vqzJlI4Ud4/6bDfxVqfCUKejUo/5bltr2US0+77OoBUv1GmXB7UzSY4ivZjW+Q36ifCZVkXNQARHA55CLZojzN1AOaVxdVCyG8hvH3mrdA+SC2W8C6FgbBns0DfrF1kpo7gdEBY5d8f9rVe3oSwjyQ1iYGAOrOCDC3rM/k6xT53APPZaTj1i78MoaIPOrE9LeEq2BEfV1rp2A1yyRPrmuzFFSj08nlpiaqOc9beQI5mhBPAIDS2UpvfHOxT+4rNFm4uUiu2+fVKmzeS1z4Uhda79wDH9H42ale1lbhJO7kUoMQWZ5RjBdI3uZjyiPKFTB7/GuA6kOqo3CUJEacfpzfZlorbkRfYSNGTAMJJz82FdQ/e8CQVgLHQGq70javbu4YGUz/lTPd7NZsTwP7nUsF11C0E7cNupyELSVtIzUng3OciQSVOb99Mu1xZIyeVTGZIMSCe4vyjfm4uR+e9CX175jOu0juoPDZVMR2Sd6kMxbGEautRiu63b7R3eUrATvc6GOBEjrhazfbyFquxVMRuGnYSLrDVgZ5Nmk=
 branches:
   only:
-    - master
+  - master
